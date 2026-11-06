@@ -387,14 +387,34 @@ Let's travel around the world and discover how we can protect our planet! 🌱
 <!-- VIDEO SECTION -->
 <section class="video-container">
   <h3>🌟 Meet Our Little Earth Heroes! 🌟</h3>
-  <video controls playsinline poster="pollution.jpeg">
+  
+  <video id="heroVideo" controls playsinline poster="pollution.jpeg" width="100%" style="max-width: 800px; background: #000; border-radius: 15px;">
     <source src="arooshan.mp4" type="video/mp4">
-    Your browser does not support the video tag.
+    
+    <!-- Fallback message if video fails to load -->
+    <div style="padding: 40px; background: #ffebee; border: 2px solid #f44336; border-radius: 15px; text-align: center; color: #c62828;">
+      <h3 style="margin-top:0;">⚠️ Video Not Found!</h3>
+      <p>The browser cannot find <code>arooshan.mp4</code>.</p>
+      <p><strong>Please check GitHub:</strong><br>
+      1. Is the file named exactly <code>arooshan.mp4</code> (all lowercase)?<br>
+      2. Did you accidentally name it <code>arooshan.mp4.mp4</code>?<br>
+      3. Are you viewing this via your <strong>GitHub Pages URL</strong> (not just opening the HTML file)?</p>
+    </div>
   </video>
+
   <p style="margin-top: 15px; font-size: 1.1rem; color: #555;">
     <strong>Aroosh and Rushan</strong> are ready to save the planet! Watch them in action! 🌍💚
   </p>
 </section>
+
+<!-- Add this script at the bottom of your HTML, just before the closing </body> tag -->
+<script>
+  // Helper script to check if video loaded correctly
+  const video = document.getElementById('heroVideo');
+  video.addEventListener('error', function() {
+    console.error("Video failed to load. Check the exact filename on GitHub!");
+  });
+</script>
 
 <!-- World Map with Animals Image -->
 <section class="world-map-container">
