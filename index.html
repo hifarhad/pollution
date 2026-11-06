@@ -62,6 +62,31 @@ header p {
   border-radius: 8px;
 }
 
+/* Video Container Styles */
+.video-container {
+  text-align: center;
+  margin: 25px 0;
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border: 4px dashed #ff9800;
+}
+
+.video-container video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  background: #000;
+}
+
+.video-container h3 {
+  color: #e87942;
+  margin: 0 0 15px 0;
+  font-size: 1.6rem;
+}
+
 /* World Map Image Container */
 .world-map-container {
   text-align: center;
@@ -129,7 +154,7 @@ header p {
   animation: fadeIn 0.4s ease;
 }
 
-.step-1 { display: block; } /* First step is always visible initially */
+.step-1 { display: block; } 
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(5px); }
@@ -211,9 +236,9 @@ header p {
 }
 
 /* German Article Colors */
-.art-der { color: #238bd2; font-weight: bold; } /* Masculine - Blue */
-.art-die { color: #e87942; font-weight: bold; } /* Feminine - Red/Orange */
-.art-das { color: #168368; font-weight: bold; } /* Neutral - Green */
+.art-der { color: #238bd2; font-weight: bold; } 
+.art-die { color: #e87942; font-weight: bold; } 
+.art-das { color: #168368; font-weight: bold; } 
 
 .german-list {
   list-style: none;
@@ -359,6 +384,18 @@ Let's travel around the world and discover how we can protect our planet! 🌱
 </p>
 </section>
 
+<!-- VIDEO SECTION -->
+<section class="video-container">
+  <h3>🌟 Meet Our Little Earth Heroes! 🌟</h3>
+  <video controls playsinline poster="pollution.jpeg">
+    <source src="arooshan.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <p style="margin-top: 15px; font-size: 1.1rem; color: #555;">
+    <strong>Aroosh and Rushan</strong> are ready to save the planet! Watch them in action! 🌍💚
+  </p>
+</section>
+
 <!-- World Map with Animals Image -->
 <section class="world-map-container">
 <h3>🗺️ Our Beautiful World with Animals</h3>
@@ -393,7 +430,7 @@ Let's travel around the world and discover how we can protect our planet! 🌱
         <button onclick="checkCardQuiz(this, false)">50 kg</button>
       </div>
       <p class="feedback"></p>
-   9</div>
+    </div>
   </div>
 
   <!-- Block 2: German Articles & Quiz -->
@@ -462,7 +499,15 @@ Air pollution happens when smoke (<span class="translation">Rauch</span>), dust
 <p>
 Sammy the squirrel (<span class="translation">Eichhörnchen</span>) loved playing outside. 
 One day he saw smoke coming from a factory (<span class="translation">Fabrik</span>) and 
-cars (<span class="translation">Autos</3>
+cars (<span class="translation">Autos</span>).
+</p>
+<p>
+The air became dirty. His friend Mia said: "Let's plant trees 
+(<span class="translation">Bäume</span>)! Trees help clean the air!"
+</p>
+<p>
+They planted trees together. Sammy was happy! 🌳
+</p>
 </div>
 
 <div class="help">
