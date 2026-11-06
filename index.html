@@ -60,7 +60,6 @@ header p {
   background: #e8f5e9;
   padding: 2px 8px;
   border-radius: 8px;
-  border-left: 4px solid #168368;
 }
 
 /* World Map Image Container */
@@ -86,7 +85,7 @@ header p {
   font-size: 1.5rem;
 }
 
-/* Fun Learning Zone - NEW COMPACT DESIGN */
+/* Compact Fun Learning Zone */
 .learning-fun {
   background: linear-gradient(135deg, #fff9c4, #fff59d);
   border: 3px solid #fbc02d;
@@ -95,199 +94,141 @@ header p {
 .learning-fun h2 {
   color: #f57f17;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
-.learning-intro {
+.learning-fun > p {
   text-align: center;
   font-size: 1.1rem;
   margin-bottom: 25px;
-  color: #555;
 }
 
-.learning-blocks {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 .learn-card {
   background: white;
   border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  border-left: 6px solid #4caf50;
-}
-
-.learn-card.german {
-  border-left-color: #2196f3;
-}
-
-.card-header {
-  padding: 18px 20px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(135deg, #f5f5f5, #ffffff);
-  transition: all 0.3s ease;
-}
-
-.card-header:hover {
-  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
-}
-
-.learn-card.german .card-header:hover {
-  background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
-}
-
-.card-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #333;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.card-icon {
-  font-size: 1.8rem;
-}
-
-.expand-hint {
-  color: #888;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-
-.card-content {
-  display: none;
   padding: 20px;
-  background: #fafafa;
-  border-top: 2px dashed #ddd;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-top: 5px solid #4caf50;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.card-content.show {
-  display: block;
-  animation: slideDown 0.3s ease;
+.learn-card.water-theme { border-top-color: #238bd2; }
+.learn-card.german-theme { border-top-color: #9b65d1; }
+
+.step {
+  display: none;
+  animation: fadeIn 0.4s ease;
 }
 
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
+.step-1 { display: block; } /* First step is always visible initially */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.fact-text {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  margin-bottom: 15px;
-  padding: 15px;
-  background: white;
-  border-radius: 10px;
-  border-left: 4px solid #4caf50;
+.step p {
+  margin: 0 0 15px 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
 }
 
-.german-word-box {
-  font-size: 1.5rem;
-  text-align: center;
-  padding: 20px;
-  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-  border-radius: 12px;
-  margin-bottom: 15px;
+.reveal-btn {
+  background: linear-gradient(135deg, #ff9800, #ffa726);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1rem;
   font-weight: bold;
-  color: #1565c0;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 3px 10px rgba(255, 152, 0, 0.3);
+  transition: transform 0.2s;
+  width: 100%;
 }
 
-.german-article {
-  color: #d32f2f;
-  font-weight: bold;
-  font-size: 1.3rem;
-}
-
-.quiz-section {
-  margin-top: 15px;
-  padding: 15px;
-  background: white;
-  border-radius: 12px;
-  border: 2px solid #ffe082;
-}
-
-.quiz-question {
-  font-weight: bold;
-  margin-bottom: 12px;
-  color: #f57f17;
-  font-size: 1.1rem;
+.reveal-btn:hover {
+  transform: scale(1.03);
 }
 
 .quiz-options {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-top: 10px;
 }
 
-.quiz-btn {
-  padding: 12px 15px;
-  border: 2px solid #ddd;
+.quiz-options button {
+  padding: 10px;
+  border: 2px solid #e0e0e0;
   border-radius: 10px;
   background: #f9f9f9;
   cursor: pointer;
   font-size: 1rem;
   font-family: inherit;
-  font-weight: 600;
+  font-weight: bold;
   transition: all 0.2s;
   text-align: left;
 }
 
-.quiz-btn:hover:not(:disabled) {
+.quiz-options button:hover:not(:disabled) {
   background: #e3f2fd;
   border-color: #2196f3;
-  transform: translateX(5px);
 }
 
-.quiz-btn.correct {
+.quiz-options button.correct {
   background: #c8e6c9;
   border-color: #4caf50;
   color: #2e7d32;
 }
 
-.quiz-btn.wrong {
+.quiz-options button.wrong {
   background: #ffcdd2;
   border-color: #f44336;
   color: #c62828;
 }
 
-.quiz-btn:disabled {
+.quiz-options button:disabled {
   cursor: default;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
-.quiz-feedback {
-  margin-top: 12px;
-  padding: 10px;
-  border-radius: 8px;
+.feedback {
   font-weight: bold;
-  text-align: center;
-  display: none;
+  margin-top: 12px;
+  font-size: 1rem;
+  min-height: 24px;
 }
 
-.quiz-feedback.show {
-  display: block;
-  animation: fadeIn 0.3s ease;
+/* German Article Colors */
+.art-der { color: #238bd2; font-weight: bold; } /* Masculine - Blue */
+.art-die { color: #e87942; font-weight: bold; } /* Feminine - Red/Orange */
+.art-das { color: #168368; font-weight: bold; } /* Neutral - Green */
+
+.german-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.german-list li {
+  padding: 8px 0;
+  border-bottom: 1px dashed #eee;
+  font-size: 1.1rem;
 }
 
-.quiz-feedback.correct {
-  background: #c8e6c9;
-  color: #2e7d32;
-}
-
-.quiz-feedback.wrong {
-  background: #ffcdd2;
-  color: #c62828;
+.german-list li:last-child {
+  border-bottom: none;
 }
 
 .story {
@@ -379,15 +320,15 @@ footer h3 {
 
 @media(max-width: 768px) {
   header h1 { font-size: 2rem; }
+  .learn-grid {
+    grid-template-columns: 1fr;
+  }
   .picture { font-size: 40px; }
-  .card-title { font-size: 1rem; }
-  .fact-text, .german-word-box { font-size: 1rem; }
 }
 
 @media(max-width: 480px) {
   header h1 { font-size: 1.6rem; }
   .card { padding: 18px; }
-  .card-header { padding: 15px; }
 }
 </style>
 </head>
@@ -395,16 +336,16 @@ footer h3 {
 <body>
 
 <header>
-<h1> Earth Heroes!</h1>
+<h1>🌍 Earth Heroes!</h1>
 <p>Explore pollution around our beautiful planet</p>
-<p>Learn English and German together! 🇬🇧 🇪</p>
+<p>Learn English and German together! 🇬🇧 🇩🇪</p>
 </header>
 
 <div class="container">
 
 <!-- Welcome Section -->
 <section class="card welcome-box">
-<h2> Welcome, Aroosh and Rushan!</h2>
+<h2>🌟 Welcome, Aroosh and Rushan!</h2>
 <p>
 You are <span class="kids-names">Little Earth Explorers</span>! 
 </p>
@@ -414,7 +355,7 @@ Pollution (<span class="translation">Verschmutzung</span>) can make our air
 and surroundings dirty.
 </p>
 <p>
-Let's travel around the world and discover how we can protect our planet! 
+Let's travel around the world and discover how we can protect our planet! 🌱
 </p>
 </section>
 
@@ -423,169 +364,82 @@ Let's travel around the world and discover how we can protect our planet!
 <h3>🗺️ Our Beautiful World with Animals</h3>
 <img src="pollution.jpeg" alt="World Map with Animals - Different continents showing various animals">
 <p style="margin-top: 15px; font-size: 1.1rem; color: #555;">
-<strong>Look at all these amazing animals!</strong> We need to keep their homes clean and safe! 🐨🐼
+<strong>Look at all these amazing animals!</strong> We need to keep their homes clean and safe! 🦁🐨🐼
 </p>
 </section>
 
-<!-- FUN LEARNING ZONE - COMPACT INTERACTIVE BLOCKS -->
+<!-- COMPACT FUN LEARNING ZONE -->
 <section class="card learning-fun">
-<h2> Fun Learning Zone! 🧩</h2>
-<p class="learning-intro">
-Click each card to learn something new, then answer the quiz! 🌟
-</p>
+<h2>🎮 Fun Learning Zone! 🧩</h2>
+<p>Click the buttons to reveal facts, learn German, and take mini quizzes!</p>
 
-<div class="learning-blocks">
-
-  <!-- Block 1: Tree Fact -->
+<div class="learn-grid">
+  
+  <!-- Block 1: Tree Fact & Quiz -->
   <div class="learn-card">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">
-        <span class="card-icon"></span>
-        <span>Nature Fact #1</span>
-      </div>
-      <span class="expand-hint">Click to reveal 👇</span>
+    <div class="step step-1">
+      <p>🌳 Trees are the lungs of our Earth! But do you know how powerful they are?</p>
+      <button class="reveal-btn" onclick="nextStep(this)">Click to reveal the fact!</button>
     </div>
-    <div class="card-content">
-      <div class="fact-text">
-        <strong>🌳 One tree can absorb up to <span style="color:#e87942; font-size:1.3rem">22 kg</span> of CO₂ per year!</strong><br>
-        That's like cleaning the air for a whole family!
+    <div class="step step-2">
+      <p>One single tree can absorb up to <strong>22 kg of CO₂</strong> every year!</p>
+      <button class="reveal-btn" onclick="nextStep(this)">Click for a quick quiz!</button>
+    </div>
+    <div class="step step-3">
+      <p><strong>Quiz:</strong> How much CO₂ does one tree absorb per year?</p>
+      <div class="quiz-options">
+        <button onclick="checkCardQuiz(this, false)">10 kg</button>
+        <button onclick="checkCardQuiz(this, true)">22 kg</button>
+        <button onclick="checkCardQuiz(this, false)">50 kg</button>
       </div>
-      <div class="quiz-section">
-        <div class="quiz-question">❓ How much CO₂ can one tree absorb per year?</div>
-        <div class="quiz-options">
-          <button class="quiz-btn" onclick="checkQuiz(this, false)">2 kg</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, true)">22 kg ✅</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, false)">200 kg</button>
-        </div>
-        <div class="quiz-feedback"></div>
+      <p class="feedback"></p>
+   9</div>
+  </div>
+
+  <!-- Block 2: German Articles & Quiz -->
+  <div class="learn-card german-theme">
+    <div class="step step-1">
+      <p>🇩🇪 In German, every noun has an article: <strong>der</strong> (masculine), <strong>die</strong> (feminine), or <strong>das</strong> (neutral).</p>
+      <button class="reveal-btn" onclick="nextStep(this)">Click to learn the words!</button>
+    </div>
+    <div class="step step-2">
+      <ul class="german-list">
+        <li>🌳 <span class="art-der">der</span> Baum (the tree)</li>
+        <li>💧 <span class="art-das">das</span> Wasser (the water)</li>
+        <li>🌫️ <span class="art-die">die</span> Luft (the air)</li>
+        <li>🗑️ <span class="art-der">der</span> Müll (the rubbish)</li>
+      </ul>
+      <button class="reveal-btn" onclick="nextStep(this)">Click to test yourself!</button>
+    </div>
+    <div class="step step-3">
+      <p><strong>Quiz:</strong> What is the correct article for "Wasser" (water)?</p>
+      <div class="quiz-options">
+        <button onclick="checkCardQuiz(this, false)"><span class="art-der">der</span> Wasser</button>
+        <button onclick="checkCardQuiz(this, false)"><span class="art-die">die</span> Wasser</button>
+        <button onclick="checkCardQuiz(this, true)"><span class="art-das">das</span> Wasser</button>
       </div>
+      <p class="feedback"></p>
     </div>
   </div>
 
-  <!-- Block 2: German Word - Der Baum -->
-  <div class="learn-card german">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">
-        <span class="card-icon">🇩🇪</span>
-        <span>German Word #1</span>
-      </div>
-      <span class="expand-hint">Click to learn 👇</span>
+  <!-- Block 3: Ocean Fact & Quiz -->
+  <div class="learn-card water-theme">
+    <div class="step step-1">
+      <p>🐢 Sea turtles love to eat jellyfish in the ocean. But there is a big problem...</p>
+      <button class="reveal-btn" onclick="nextStep(this)">Click to reveal the fact!</button>
     </div>
-    <div class="card-content">
-      <div class="german-word-box">
-        <span class="german-article">der</span> Baum = Tree 🌳
-      </div>
-      <div class="quiz-section">
-        <div class="quiz-question">❓ What is the German word for "Tree"?</div>
-        <div class="quiz-options">
-          <button class="quiz-btn" onclick="checkQuiz(this, false)">die Wasser</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, true)">der Baum ✅</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, false)">das Auto</button>
-        </div>
-        <div class="quiz-feedback"></div>
-      </div>
+    <div class="step step-2">
+      <p>They sometimes mistake floating <strong>plastic bags</strong> for yummy jellyfish and eat them!</p>
+      <button class="reveal-btn" onclick="nextStep(this)">Click for a quick quiz!</button>
     </div>
-  </div>
-
-  <!-- Block 3: Turtle Fact -->
-  <div class="learn-card">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">
-        <span class="card-icon"></span>
-        <span>Ocean Fact</span>
+    <div class="step step-3">
+      <p><strong>Quiz:</strong> What do sea turtles mistake plastic bags for?</p>
+      <div class="quiz-options">
+        <button onclick="checkCardQuiz(this, false)">Rocks 🪨</button>
+        <button onclick="checkCardQuiz(this, true)">Jellyfish 🪼</button>
+        <button onclick="checkCardQuiz(this, false)">Fish 🐟</button>
       </div>
-      <span class="expand-hint">Click to reveal 👇</span>
-    </div>
-    <div class="card-content">
-      <div class="fact-text">
-        <strong>🐢 Sea turtles mistake plastic bags for jellyfish!</strong><br>
-        Plastic in the ocean is very dangerous for sea animals.
-      </div>
-      <div class="quiz-section">
-        <div class="quiz-question">❓ What do sea turtles mistake plastic bags for?</div>
-        <div class="quiz-options">
-          <button class="quiz-btn" onclick="checkQuiz(this, true)">Jellyfish ✅</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, false)">Fish</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, false)">Seaweed</button>
-        </div>
-        <div class="quiz-feedback"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Block 4: German Word - Das Wasser -->
-  <div class="learn-card german">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">
-        <span class="card-icon">🇪</span>
-        <span>German Word #2</span>
-      </div>
-      <span class="expand-hint">Click to learn 👇</span>
-    </div>
-    <div class="card-content">
-      <div class="german-word-box">
-        <span class="german-article">das</span> Wasser = Water 💧
-      </div>
-      <div class="quiz-section">
-        <div class="quiz-question">❓ What is the German word for "Water"?</div>
-        <div class="quiz-options">
-          <button class="quiz-btn" onclick="checkQuiz(this, false)">der Luft</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, false)">die Erde</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, true)">das Wasser ✅</button>
-        </div>
-        <div class="quiz-feedback"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Block 5: Water Waste Fact -->
-  <div class="learn-card">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">
-        <span class="card-icon">💧</span>
-        <span>Water Fact</span>
-      </div>
-      <span class="expand-hint">Click to reveal 👇</span>
-    </div>
-    <div class="card-content">
-      <div class="fact-text">
-        <strong>💧 A dripping tap wastes enough water in one week to fill a whole bathtub!</strong><br>
-        Always turn off taps tightly!
-      </div>
-      <div class="quiz-section">
-        <div class="quiz-question">❓ How long does it take for a dripping tap to fill a bathtub?</div>
-        <div class="quiz-options">
-          <button class="quiz-btn" onclick="checkQuiz(this, false)">One day</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, true)">One week ✅</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, false)">One month</button>
-        </div>
-        <div class="quiz-feedback"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Block 6: German Word - Die Luft -->
-  <div class="learn-card german">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">
-        <span class="card-icon">🇩🇪</span>
-        <span>German Word #3</span>
-      </div>
-      <span class="expand-hint">Click to learn 👇</span>
-    </div>
-    <div class="card-content">
-      <div class="german-word-box">
-        <span class="german-article">die</span> Luft = Air 
-      </div>
-      <div class="quiz-section">
-        <div class="quiz-question">❓ What is the German word for "Air"?</div>
-        <div class="quiz-options">
-          <button class="quiz-btn" onclick="checkQuiz(this, true)">die Luft ✅</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, false)">der Baum</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, false)">das Haus</button>
-        </div>
-        <div class="quiz-feedback"></div>
-      </div>
+      <p class="feedback"></p>
     </div>
   </div>
 
@@ -595,7 +449,7 @@ Click each card to learn something new, then answer the quiz! 🌟
 <!-- Air Pollution Section -->
 <section class="card air">
 <h2>1. Air Pollution (Luftverschmutzung) 🌫️</h2>
-<div class="picture">🏭 💨 </div>
+<div class="picture">🏭 💨 🌳</div>
 
 <p>
 Air pollution happens when smoke (<span class="translation">Rauch</span>), dust 
@@ -608,15 +462,7 @@ Air pollution happens when smoke (<span class="translation">Rauch</span>), dust
 <p>
 Sammy the squirrel (<span class="translation">Eichhörnchen</span>) loved playing outside. 
 One day he saw smoke coming from a factory (<span class="translation">Fabrik</span>) and 
-cars (<span class="translation">Autos</span>).
-</p>
-<p>
-The air became dirty. His friend Mia said: "Let's plant trees 
-(<span class="translation">Bäume</span>)! Trees help clean the air!"
-</p>
-<p>
-They planted trees together. Sammy was happy! 🌳
-</p>
+cars (<span class="translation">Autos</3>
 </div>
 
 <div class="help">
@@ -658,7 +504,7 @@ A kind girl named Emma helped clean up the rubbish. Soon the river looked much b
 <div class="help">
 <h3>💚 How can we help?</h3>
 <ul>
-<li> Never throw rubbish into rivers (<span class="translation">Flüsse</span>)</li>
+<li>🚫 Never throw rubbish into rivers (<span class="translation">Flüsse</span>)</li>
 <li>🛍️ Use fewer plastic bags (<span class="translation">Plastiktüten</span>)</li>
 <li>🌊 Keep oceans (<span class="translation">Meere</span>) clean</li>
 </ul>
@@ -668,7 +514,7 @@ A kind girl named Emma helped clean up the rubbish. Soon the river looked much b
 <!-- Sound Pollution Section -->
 <section class="card sound">
 <h2>3. Sound Pollution (Lärmverschmutzung) 🔊</h2>
-<div class="picture"> 📢 ✈️ 🔊 🐦</div>
+<div class="picture">🚗 📢 ✈️ 🔊 🐦</div>
 
 <p>
 Sound pollution happens when sounds (<span class="translation">Geräusche</span>) 
@@ -703,7 +549,7 @@ Soon Tina could hear the birds again!
 
 <!-- Earth Hero Certificate Section -->
 <section class="card" style="text-align:center; background: linear-gradient(135deg, #fff3e0, #ffe0b2);">
-<h2> Become an Earth Hero!</h2>
+<h2>🏆 Become an Earth Hero!</h2>
 <p style="font-size: 1.2rem;">
 Clean air, clean water and peaceful surroundings make our planet a happy place.
 </p>
@@ -719,57 +565,52 @@ I am an Earth Hero! ⭐
 
 <footer>
 <h3>🌱 Love the Earth. Protect the Earth.</h3>
-<p>Made with love for Aroosh and Rushan - Little Earth Heroes! </p>
-<p style="margin-top: 10px; font-size: 0.9rem;">🌍 🐼  🐧 🐢</p>
+<p>Made with love for Aroosh and Rushan - Little Earth Heroes! 💚</p>
+<p style="margin-top: 10px; font-size: 0.9rem;">🌍 🐼 🦁 🐧 🐢</p>
 </footer>
 
 <script>
-// Toggle card visibility
-function toggleCard(header) {
-  const content = header.nextElementSibling;
-  const hint = header.querySelector('.expand-hint');
+// Step-by-step reveal logic for learning cards
+function nextStep(btn) {
+  const card = btn.closest('.learn-card');
+  const currentStep = btn.parentElement;
   
-  content.classList.toggle('show');
+  // Hide current step
+  currentStep.style.display = 'none';
   
-  if (content.classList.contains('show')) {
-    hint.textContent = 'Click to hide 👆';
-  } else {
-    hint.textContent = 'Click to reveal 👇';
+  // Find and show the next step
+  const currentStepNum = parseInt(currentStep.classList[1].split('-')[1]);
+  const nextStep = card.querySelector(`.step-${currentStepNum + 1}`);
+  if (nextStep) {
+    nextStep.style.display = 'block';
   }
 }
 
-// Check quiz answer
-function checkQuiz(button, isCorrect) {
-  const quizSection = button.closest('.quiz-section');
-  const allButtons = quizSection.querySelectorAll('.quiz-btn');
-  const feedback = quizSection.querySelector('.quiz-feedback');
+// Quiz logic for individual cards
+function checkCardQuiz(btn, isCorrect) {
+  const optionsDiv = btn.parentElement;
+  const feedback = optionsDiv.parentElement.querySelector('.feedback');
+  const allButtons = optionsDiv.querySelectorAll('button');
   
-  // Disable all buttons
-  allButtons.forEach(btn => {
-    btn.disabled = true;
-    if (btn === button) {
-      if (isCorrect) {
-        btn.classList.add('correct');
-      } else {
-        btn.classList.add('wrong');
-      }
-    }
+  // Disable all buttons in this quiz
+  allButtons.forEach(button => {
+    button.disabled = true;
   });
-  
-  // Show feedback
+
   if (isCorrect) {
-    feedback.textContent = '🎉 Correct! Great job, Earth Hero!';
-    feedback.className = 'quiz-feedback show correct';
+    btn.classList.add('correct');
+    feedback.innerHTML = "🎉 Correct! You are a smart Earth Hero!";
+    feedback.style.color = "#2e7d32";
   } else {
-    feedback.textContent = '💪 Good try! Now you know the right answer!';
-    feedback.className = 'quiz-feedback show wrong';
-    
-    // Highlight the correct answer
-    allButtons.forEach(btn => {
-      if (btn.getAttribute('onclick').includes('true')) {
-        btn.classList.add('correct');
+    btn.classList.add('wrong');
+    // Highlight the correct one
+    allButtons.forEach(button => {
+      if (button.onclick.toString().includes('true')) {
+        button.classList.add('correct');
       }
     });
+    feedback.innerHTML = "❌ Oops! But don't worry, now you know the right answer!";
+    feedback.style.color = "#c62828";
   }
 }
 </script>
