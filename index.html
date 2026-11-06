@@ -79,6 +79,9 @@ header p {
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
   background: #000;
+  /* THESE TWO LINES PREVENT HEADS FROM BEING CUT OFF */
+  object-fit: contain;
+  max-height: 600px;
 }
 
 .video-container h3 {
@@ -388,8 +391,8 @@ Let's travel around the world and discover how we can protect our planet! 🌱
 <section class="video-container">
   <h3>🌟 Meet Our Little Earth Heroes! 🌟</h3>
   
-  <video id="heroVideo" controls playsinline poster="pollution.jpeg" width="100%" style="max-width: 800px; background: #000; border-radius: 15px;">
-    <!-- UPDATED TO USE .MOV FILE -->
+  <video id="heroVideo" controls playsinline poster="pollution.jpeg" width="100%" style="max-width: 800px; background: #000; border-radius: 15px; object-fit: contain; max-height: 600px;">
+    <!-- Make sure this matches the EXACT name of your file on GitHub -->
     <source src="My Movie-360p30.mov" type="video/quicktime">
     
     <!-- Fallback message if video fails to load -->
