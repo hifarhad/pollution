@@ -62,22 +62,23 @@ header p {
   border-radius: 8px;
 }
 
-/* Video Container Styles */
+/* Video Container Styles - UPDATED FOR COMPACT LAYOUT */
 .video-container {
   text-align: center;
-  margin: 25px 0;
+  margin: 25px auto; /* Centers the box */
   background: white;
   padding: 25px;
   border-radius: 20px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
   border: 4px dashed #ff9800;
+  max-width: 600px; /* Prevents the box from stretching too wide */
 }
 
 .video-container video {
   width: 100%;
-  max-width: 400px; /* Keeps it from getting too huge on computers */
-  aspect-ratio: 9 / 16; /* Makes the box tall like a phone screen */
-  object-fit: contain; /* Ensures NO heads are cut off */
+  max-width: 400px; /* Keeps the video vertical and centered */
+  aspect-ratio: 9 / 16; 
+  object-fit: contain; 
   background: #000;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
@@ -391,7 +392,7 @@ Let's travel around the world and discover how we can protect our planet! 🌱
   <h3>🌟 Meet Our Little Earth Heroes! 🌟</h3>
   
   <video id="heroVideo" controls playsinline poster="pollution.jpeg">
-    <!-- UPDATED TO THE NEW MP4 FILE -->
+    <!-- EXACT FILENAME FROM YOUR GITHUB -->
     <source src="My Movie-360p30.mp4" type="video/mp4">
     
     <!-- Fallback message if video fails to load -->
