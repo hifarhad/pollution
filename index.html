@@ -4,81 +4,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Save Our Beautiful Earth 🌍</title>
+<title>Earth Heroes - Pollution Explorer 🌍</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
   font-family: "Trebuchet MS", Arial, sans-serif;
   background: #f0fbff;
   color: #263746;
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
 header {
-  background: linear-gradient(135deg, #38c9a2, #45b4e8);
+  background: linear-gradient(135deg,#38c9a2,#45b4e8);
   color: white;
   text-align: center;
-  padding: 45px 20px;
+  padding: 40px 15px;
 }
 
-header h1 {
-  font-size: 2.5rem;
-  margin: 0;
-}
-
-header p {
-  font-size: 1.2rem;
-}
+header h1 { font-size: 2.4rem; margin: 0; }
 
 .container {
-  max-width: 950px;
+  max-width: 1000px;
   margin: auto;
-  padding: 20px;
+  padding: 18px;
 }
 
-.intro {
-  text-align: center;
+.card {
   background: white;
-  padding: 25px;
+  padding: 22px;
   border-radius: 20px;
-  margin: 25px 0;
-  box-shadow: 0 4px 12px #00000010;
+  margin: 24px 0;
+  box-shadow: 0 4px 15px #00000010;
 }
 
-.pollution-card {
+.translation {
+  color: #168368;
+  font-weight: bold;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.filters button {
+  border: 2px solid #dce8ee;
   background: white;
-  margin: 30px 0;
-  padding: 25px;
-  border-radius: 22px;
-  box-shadow: 0 5px 15px #00000012;
+  border-radius: 25px;
+  padding: 12px 18px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-.pollution-card h2 {
-  font-size: 1.8rem;
+.filters button.active {
+  background: #267f71;
+  color: white;
+  border-color: #267f71;
 }
 
-.picture {
-  text-align: center;
-  font-size: 90px;
-  padding: 20px;
-  background: #eef9ff;
+#map {
+  height: 480px;
+  width: 100%;
   border-radius: 18px;
+  overflow: hidden;
+  background: #d8eff9;
+  z-index: 1;
+}
+
+.map-info {
+  background: #fff8df;
+  padding: 18px;
+  border-radius: 15px;
+  margin-top: 15px;
+  min-height: 100px;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  font-size: 14px;
   margin: 15px 0;
 }
 
-.air h2 { color: #e87942; }
-.water h2 { color: #238bd2; }
-.sound h2 { color: #9b65d1; }
-
-.translation {
-  color: #167b62;
-  font-weight: bold;
-}
+.legend span { font-weight: bold; }
 
 .story {
   background: #fff8df;
@@ -91,231 +108,390 @@ header p {
   background: #e9f9ee;
   padding: 18px;
   border-radius: 15px;
-  margin-top: 15px;
 }
 
-h3 {
-  margin-bottom: 5px;
+.picture {
+  text-align: center;
+  font-size: 75px;
+  padding: 20px;
+  background: #eef9ff;
+  border-radius: 15px;
 }
+
+.air h2 { color: #e87942; }
+.water h2 { color: #238bd2; }
+.sound h2 { color: #9b65d1; }
 
 footer {
-  text-align: center;
   background: #287d70;
   color: white;
+  text-align: center;
   padding: 25px;
-  margin-top: 35px;
 }
 
-button {
-  background: #ffbd59;
-  border: none;
-  padding: 12px 22px;
-  border-radius: 25px;
-  font-size: 16px;
-  cursor: pointer;
+.leaflet-popup-content {
+  font-family: "Trebuchet MS", Arial;
+  line-height: 1.5;
 }
 
-button:hover {
-  background: #ffa927;
+@media(max-width:600px) {
+  header h1 { font-size: 1.8rem; }
+  #map { height: 370px; }
 }
 </style>
+
+<!-- Interactive map library -->
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
 </head>
 
 <body>
 
 <header>
-  <h1>🌍 Save Our Beautiful Earth!</h1>
-  <p>Learn about pollution (Umweltverschmutzung)</p>
-  <p>Little children can make a BIG difference! 💚</p>
+<h1>🌍 Earth Heroes!</h1>
+<p>Explore pollution around our beautiful planet</p>
+<p>Learn English and German together! 🇬🇧 🇩🇪</p>
 </header>
 
 <div class="container">
 
-<section class="intro">
-  <h2>What is Pollution? 🌎</h2>
-  <p>
-    Pollution (Verschmutzung) happens when harmful things
-    make our air (Luft), water (Wasser) and surroundings dirty.
-  </p>
-  <p>
-    Let's meet three types of pollution and learn
-    how we can help our planet!
-  </p>
+<section class="card" style="text-align:center">
+<h2>Welcome, Little Earth Explorer! 🌱</h2>
+<p>
+Pollution (Verschmutzung) can make our air
+(Luft), water (Wasser) and surroundings dirty.
+</p>
+<p>
+Let's travel around the world and discover
+how we can protect our planet!
+</p>
 </section>
 
-<!-- AIR POLLUTION -->
+<!-- WORLD MAP -->
 
-<section class="pollution-card air">
-  <h2>1. Air Pollution (Luftverschmutzung) 🌫️</h2>
+<section class="card">
+<h2>🌎 Pollution Around the World</h2>
+<p>
+Choose a pollution type to explore different
+places around the world.
+</p>
 
-  <div class="picture">🏭 💨 🌳</div>
+<div class="filters">
+<button class="active" onclick="showType('all',this)">
+🌍 All
+</button>
+<button onclick="showType('air',this)">
+🌫️ Air
+</button>
+<button onclick="showType('water',this)">
+💧 Water
+</button>
+<button onclick="showType('sound',this)">
+🔊 Sound
+</button>
+</div>
 
-  <h3>What is it?</h3>
-  <p>
-    Air pollution happens when smoke (Rauch), dust (Staub)
-    and harmful gases (schädliche Gase) make the air dirty.
-  </p>
+<div id="map"></div>
 
-  <div class="story">
-    <h3>📖 A Little Story: Sammy and the Dirty Air</h3>
-    <p>
-      Sammy the squirrel (Eichhörnchen) loved playing
-      outside with his friends.
-    </p>
-    <p>
-      One day, he saw a factory (Fabrik) making lots of
-      black smoke (schwarzer Rauch). Cars (Autos) were
-      also making smoke.
-    </p>
-    <p>
-      The air became dirty, and Sammy started coughing
-      (husten).
-    </p>
-    <p>
-      His friend Mia said, "Let's plant trees (Bäume)!
-      Trees help clean the air!"
-    </p>
-    <p>
-      They planted little trees together. Sammy was happy
-      because he was helping the Earth! 🌳
-    </p>
-  </div>
+<div class="legend">
+<span style="color:#e87942">● Air pollution</span>
+<span style="color:#238bd2">● Water pollution</span>
+<span style="color:#9b65d1">● Sound pollution</span>
+</div>
 
-  <div class="help">
-    <h3>💚 How can we help?</h3>
-    <ul>
-      <li>Plant trees (Bäume pflanzen).</li>
-      <li>Walk or ride a bicycle (Fahrrad fahren).</li>
-      <li>Do not burn rubbish (Müll verbrennen).</li>
-      <li>Keep the air clean (Luft sauber halten).</li>
-    </ul>
-  </div>
+<div class="map-info" id="mapInfo">
+<h3>👆 Click on a coloured marker!</h3>
+<p>
+Discover a place, learn a new word and find
+out how we can help.
+</p>
+</div>
 </section>
 
-<!-- WATER POLLUTION -->
+<!-- AIR -->
 
-<section class="pollution-card water">
-  <h2>2. Water Pollution (Wasserverschmutzung) 💧</h2>
+<section class="card air">
+<h2>1. Air Pollution (Luftverschmutzung) 🌫️</h2>
+<div class="picture">🏭 💨 🌳</div>
 
-  <div class="picture">🌊 🐟 🧴 🐢</div>
+<p>
+Air pollution happens when smoke (Rauch), dust
+(Staub) and harmful gases (schädliche Gase)
+make the air dirty.
+</p>
 
-  <h3>What is it?</h3>
-  <p>
-    Water pollution happens when plastic (Plastik),
-    rubbish (Müll) and harmful chemicals (schädliche
-    Chemikalien) make water dirty.
-  </p>
+<div class="story">
+<h3>📖 Sammy and the Dirty Air</h3>
+<p>
+Sammy the squirrel (Eichhörnchen) loved playing
+outside. One day he saw smoke coming from a
+factory (Fabrik) and cars (Autos).
+</p>
+<p>
+The air became dirty. His friend Mia said:
+"Let's plant trees (Bäume)! Trees help clean the air!"
+</p>
+<p>
+They planted trees together. Sammy was happy! 🌳
+</p>
+</div>
 
-  <div class="story">
-    <h3>📖 A Little Story: Benny the Little Fish</h3>
-    <p>
-      Benny was a little fish (Fisch) who lived in a
-      beautiful blue river (Fluss).
-    </p>
-    <p>
-      He loved swimming with his friends.
-    </p>
-    <p>
-      One morning, Benny saw plastic bottles
-      (Plastikflaschen) and rubbish floating in the water.
-    </p>
-    <p>
-      The water became dirty. Benny couldn't find a clean
-      place to swim.
-    </p>
-    <p>
-      A kind little girl named Emma picked up the rubbish
-      with help from an adult and put it in the bin
-      (Mülleimer).
-    </p>
-    <p>
-      The river became cleaner, and Benny could swim
-      happily again! 🐟
-    </p>
-  </div>
-
-  <div class="help">
-    <h3>💚 How can we help?</h3>
-    <ul>
-      <li>Never throw rubbish into rivers (Flüsse).</li>
-      <li>Use fewer plastic bags (Plastiktüten).</li>
-      <li>Put rubbish in the bin (Mülleimer).</li>
-      <li>Keep oceans (Meere) clean.</li>
-    </ul>
-  </div>
+<div class="help">
+<h3>💚 How can we help?</h3>
+<ul>
+<li>Plant trees (Bäume pflanzen).</li>
+<li>Ride a bicycle (Fahrrad fahren).</li>
+<li>Keep the air clean (Luft sauber halten).</li>
+</ul>
+</div>
 </section>
 
-<!-- SOUND POLLUTION -->
+<!-- WATER -->
 
-<section class="pollution-card sound">
-  <h2>3. Sound Pollution (Lärmverschmutzung) 🔊</h2>
+<section class="card water">
+<h2>2. Water Pollution (Wasserverschmutzung) 💧</h2>
+<div class="picture">🌊 🐟 🧴 🐢</div>
 
-  <div class="picture">🚗 📢 ✈️ 🔊 🐦</div>
+<p>
+Water pollution happens when plastic (Plastik),
+rubbish (Müll) and harmful chemicals
+(schädliche Chemikalien) make water dirty.
+</p>
 
-  <h3>What is it?</h3>
-  <p>
-    Sound pollution happens when sounds (Geräusche)
-    become too loud and disturb people and animals.
-  </p>
+<div class="story">
+<h3>📖 Benny the Little Fish</h3>
+<p>
+Benny was a little fish (Fisch) living in a
+beautiful river (Fluss).
+</p>
+<p>
+One day he saw plastic bottles (Plastikflaschen)
+floating in the water.
+</p>
+<p>
+A kind girl named Emma helped clean up the rubbish.
+Soon the river looked much better!
+</p>
+</div>
 
-  <div class="story">
-    <h3>📖 A Little Story: Tina the Sleeping Bird</h3>
-    <p>
-      Tina was a little bird (Vogel) who lived in a
-      beautiful tree.
-    </p>
-    <p>
-      Every morning, she loved listening to the quiet
-      sounds of nature (Natur).
-    </p>
-    <p>
-      But one day, cars started honking (hupen),
-      machines started working and people made lots of noise.
-    </p>
-    <p>
-      Tina couldn't sleep or hear her friends singing.
-    </p>
-    <p>
-      A little boy named Leo asked everyone to be quieter.
-      They turned down the music (Musik) and stopped
-      shouting (schreien).
-    </p>
-    <p>
-      Soon, Tina could hear the beautiful birds singing
-      again! 🐦
-    </p>
-  </div>
-
-  <div class="help">
-    <h3>💚 How can we help?</h3>
-    <ul>
-      <li>Keep music quiet (Musik leise machen).</li>
-      <li>Do not shout (nicht schreien).</li>
-      <li>Avoid unnecessary honking (unnötiges Hupen vermeiden).</li>
-      <li>Respect animals and people (Menschen und Tiere respektieren).</li>
-    </ul>
-  </div>
+<div class="help">
+<h3>💚 How can we help?</h3>
+<ul>
+<li>Never throw rubbish into rivers (Flüsse).</li>
+<li>Use fewer plastic bags (Plastiktüten).</li>
+<li>Keep oceans (Meere) clean.</li>
+</ul>
+</div>
 </section>
 
-<section class="intro">
-  <h2>🌈 Be a Little Earth Hero!</h2>
-  <p>
-    Clean air, clean water and quiet surroundings
-    make our planet a happy place.
-  </p>
-  <h2>🌍 Every small action counts!</h2>
-  <p>Let's protect our beautiful Earth together! 💚</p>
-  <button onclick="alert('You are an Earth Hero! 🌍💚')">
-    I am an Earth Hero! ⭐
-  </button>
+<!-- SOUND -->
+
+<section class="card sound">
+<h2>3. Sound Pollution (Lärmverschmutzung) 🔊</h2>
+<div class="picture">🚗 📢 ✈️ 🔊 🐦</div>
+
+<p>
+Sound pollution happens when sounds (Geräusche)
+become too loud and disturb people and animals.
+</p>
+
+<div class="story">
+<h3>📖 Tina the Sleeping Bird</h3>
+<p>
+Tina was a little bird (Vogel) living in a tree.
+She loved the quiet sounds of nature (Natur).
+</p>
+<p>
+One day, cars started honking (hupen) and
+machines became very noisy.
+</p>
+<p>
+Tina couldn't hear her friends singing.
+A little boy asked everyone to be quieter.
+Soon Tina could hear the birds again!
+</p>
+</div>
+
+<div class="help">
+<h3>💚 How can we help?</h3>
+<ul>
+<li>Keep music quiet (Musik leise machen).</li>
+<li>Do not shout (nicht schreien).</li>
+<li>Respect animals (Tiere respektieren).</li>
+</ul>
+</div>
+</section>
+
+<section class="card" style="text-align:center">
+<h2>🏆 Become an Earth Hero!</h2>
+<p>
+Clean air, clean water and peaceful surroundings
+make our planet a happy place.
+</p>
+<button onclick="alert('You are an Earth Hero! 🌍💚')">
+I am an Earth Hero! ⭐
+</button>
 </section>
 
 </div>
 
 <footer>
-  <h3>🌱 Love the Earth. Protect the Earth.</h3>
-  <p>Made with love for little Earth heroes! 💚</p>
+<h3>🌱 Love the Earth. Protect the Earth.</h3>
+<p>Made with love for little Earth heroes! 💚</p>
 </footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+const map = L.map('map').setView([20, 10], 2);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
+  maxZoom: 18
+}).addTo(map);
+
+const places = [
+  {
+    name: "Delhi, India",
+    type: "air",
+    coords: [28.6139,77.2090],
+    emoji: "🌫️",
+    title: "Air pollution (Luftverschmutzung)",
+    description: "Delhi sometimes experiences heavy smog (Smog). Tiny particles in the air can make breathing difficult.",
+    german: "In Delhi gibt es manchmal starken Smog. Kleine Teilchen in der Luft können das Atmen erschweren."
+  },
+  {
+    name: "Beijing, China",
+    type: "air",
+    coords: [39.9042,116.4074],
+    emoji: "🏭",
+    title: "Dirty air (Schmutzige Luft)",
+    description: "Beijing has experienced serious air pollution. Cleaner transport and energy can help.",
+    german: "Peking hatte schon starke Luftverschmutzung. Sauberer Verkehr und Energie können helfen."
+  },
+  {
+    name: "Lahore, Pakistan",
+    type: "air",
+    coords: [31.5204,74.3587],
+    emoji: "🌫️",
+    title: "Smog (Smog)",
+    description: "Lahore experiences serious smog episodes, especially in cooler months.",
+    german: "In Lahore gibt es besonders in den kühleren Monaten starken Smog."
+  },
+  {
+    name: "Great Pacific Garbage Patch",
+    type: "water",
+    coords: [30,-140],
+    emoji: "🧴",
+    title: "Ocean plastic (Plastik im Meer)",
+    description: "Plastic waste collects in this part of the Pacific Ocean. Sea animals can be harmed by plastic.",
+    german: "Hier sammelt sich Plastik im Pazifik. Meerestiere können durch Plastik verletzt werden."
+  },
+  {
+    name: "Ganges River, India",
+    type: "water",
+    coords: [25.3,83.0],
+    emoji: "🐟",
+    title: "River pollution (Flussverschmutzung)",
+    description: "Some stretches of the Ganges are affected by sewage and waste.",
+    german: "Einige Abschnitte des Ganges sind durch Abwasser und Müll verschmutzt."
+  },
+  {
+    name: "Jakarta, Indonesia",
+    type: "water",
+    coords: [-6.2088,106.8456],
+    emoji: "🌊",
+    title: "Water pollution (Wasserverschmutzung)",
+    description: "Some rivers and waterways around Jakarta face plastic and other waste pollution.",
+    german: "Einige Flüsse und Wasserwege in Jakarta sind durch Plastik und anderen Müll verschmutzt."
+  },
+  {
+    name: "New York, USA",
+    type: "sound",
+    coords: [40.7128,-74.0060],
+    emoji: "🚕",
+    title: "Traffic noise (Verkehrslärm)",
+    description: "Busy streets, buses and horns make some city areas very noisy.",
+    german: "Belebte Straßen, Busse und Hupen machen manche Stadtteile sehr laut."
+  },
+  {
+    name: "London, UK",
+    type: "sound",
+    coords: [51.5072,-0.1276],
+    emoji: "✈️",
+    title: "City noise (Stadtlärm)",
+    description: "Traffic, construction and aircraft can make London noisy.",
+    german: "Verkehr, Baustellen und Flugzeuge können London laut machen."
+  },
+  {
+    name: "Tokyo, Japan",
+    type: "sound",
+    coords: [35.6762,139.6503],
+    emoji: "🚆",
+    title: "Transport noise (Verkehrslärm)",
+    description: "Trains, traffic and busy streets create noise in parts of Tokyo.",
+    german: "Züge, Verkehr und belebte Straßen verursachen in Teilen Tokios Lärm."
+  }
+];
+
+const colors = {
+  air: "#e87942",
+  water: "#238bd2",
+  sound: "#9b65d1"
+};
+
+const markers = [];
+
+places.forEach(place => {
+  const marker = L.circleMarker(place.coords, {
+    radius: 10,
+    color: "white",
+    weight: 2,
+    fillColor: colors[place.type],
+    fillOpacity: 0.95
+  });
+
+  marker.bindPopup(
+    "<b>" + place.emoji + " " + place.name + "</b><br>" +
+    place.title + "<br><br>" +
+    place.description
+  );
+
+  marker.on('click', () => {
+    document.getElementById('mapInfo').innerHTML =
+      "<h3>" + place.emoji + " " + place.name + "</h3>" +
+      "<b>" + place.title + "</b>" +
+      "<p>" + place.description + "</p>" +
+      "<p class='translation'>🇩🇪 " + place.german + "</p>";
+  });
+
+  marker.addTo(map);
+  markers.push({marker, place});
+});
+
+function showType(type, button) {
+  document.querySelectorAll('.filters button').forEach(b => {
+    b.classList.remove('active');
+  });
+
+  button.classList.add('active');
+
+  markers.forEach(item => {
+    const visible = type === 'all' || item.place.type === type;
+
+    if (visible) {
+      item.marker.addTo(map);
+    } else {
+      map.removeLayer(item.marker);
+    }
+  });
+
+  document.getElementById('mapInfo').innerHTML =
+    "<h3>🌍 Explore the map!</h3>" +
+    "<p>Click a marker to learn more about pollution and discover its German translation.</p>";
+}
+</script>
 
 </body>
 </html>
